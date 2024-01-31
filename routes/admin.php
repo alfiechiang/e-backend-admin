@@ -25,11 +25,14 @@ Route::group([
     Route::get('/product/img', [ProductImgController::class, 'list']);
     Route::get('/product/img/{img_id}/findone', [ProductImgController::class, 'findone']);
     Route::put('/product/img/{img_id}', [ProductImgController::class, 'update']);
+    Route::delete('/product/img/{img_id}', [ProductImgController::class, 'delete']);
 
 });
 
 
 Route::post('/product/img', [ProductImgController::class, 'create']);
+
+
 
 
 Route::post('/uploadimg', [UploadImageController::class, 'exec']);

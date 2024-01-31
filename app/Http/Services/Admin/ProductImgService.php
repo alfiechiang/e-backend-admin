@@ -33,4 +33,8 @@ class ProductImgService{
         return $this->productImgDao->update($data,$img_id);
     }
 
+    public function delete(int $img_id){
+        return $this->productImgDao->delete($img_id);
+    }
+
 }

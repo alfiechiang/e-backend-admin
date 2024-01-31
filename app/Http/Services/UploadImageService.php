@@ -27,4 +27,11 @@ class UploadImageService
         // 返回文件的 URL
         return  ['img_url'=>env('AWS_URL').$fileName,'fileName'=>$fileName];
     }
+
+    public function delete(string $fileName)
+    {
+        Storage::disk('s3')->delete($fileName);
+    }
+
+
 }

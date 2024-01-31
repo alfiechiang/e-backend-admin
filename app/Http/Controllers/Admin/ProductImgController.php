@@ -28,7 +28,7 @@ class ProductImgController extends Controller
         $img_url=$result['img_url'];
         $fileName=$result['fileName'];
 
-        $this->productImgService->create(['product_id'=>$product_id,'img_url'=>$img_url]);
+        $this->productImgService->create(['product_id'=>$product_id,'img_url'=>$img_url,'file_name'=>$fileName]);
         return Response::format(200,['img_url'=>$img_url,'fileName'=>$fileName],'請求成功');
     }
 
@@ -46,4 +46,11 @@ class ProductImgController extends Controller
         $this->productImgService->update($request->all(),$category_id);
         return Response::format(200,[],'請求成功');
     }
+
+    public function delete(int $img_id){
+       $fileName= $this->productImgService->delete($img_id);
+       $this->uploadImageService->delete($fileName);
+        return Response::format(200,[],'請求成功');
+    }
+
 }
