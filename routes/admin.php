@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImgController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UploadImageController;
 
 Route::post('/login', [UserController::class, 'login']);
@@ -26,6 +27,10 @@ Route::group([
     Route::get('/product/img/{img_id}/findone', [ProductImgController::class, 'findone']);
     Route::put('/product/img/{img_id}', [ProductImgController::class, 'update']);
     Route::delete('/product/img/{img_id}', [ProductImgController::class, 'delete']);
+
+
+    Route::get('/order', [OrderController::class, 'list']);
+
 
 });
 
